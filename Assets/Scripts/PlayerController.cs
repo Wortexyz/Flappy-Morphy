@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameManager GameManager;
     private Vector3 direction;
     public float Gravity;
     public float Speed;
@@ -45,5 +46,9 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("Flappy"); 
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameManager.GameOver();
     }
 }
