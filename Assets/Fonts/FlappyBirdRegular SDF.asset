@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: FlappyBirdRegular SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -67685052
   material: {fileID: 8924134221993772212}
-  materialHashCode: 0
+  materialHashCode: 1725126116
   m_Version: 1.1.0
   m_SourceFontFileGUID: 6d202fe0ed35df4469b604b9ab032862
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 6d202fe0ed35df4469b604b9ab032862, type: 3}
@@ -2333,7 +2333,7 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0
+    - _FaceDilate: 0.05
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
@@ -2347,12 +2347,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.465
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6354167
+    - _ScaleRatioC: 0.6354167
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
