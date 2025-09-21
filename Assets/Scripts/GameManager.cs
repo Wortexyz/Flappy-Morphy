@@ -7,13 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public GameObject gameoverPannel, PausePannel, ScorePannel, pauseButtonPannel;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI gameOverScoreText;
-    public TextMeshProUGUI bestScoreText;
-
+    public GameObject gameoverPannel, PausePannel, pauseButtonPannel;
+    public TextMeshPro worldScoreText;
     private int score;
     private int bestScore;
+    public TextMeshProUGUI gameOverScoreText; 
+    public TextMeshProUGUI bestScoreText; 
+
 
     void Awake()
     {
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         PausePannel.SetActive(false);
         pauseButtonPannel.SetActive(true);
-        ScorePannel.SetActive(true);
+
         score = 0;
         bestScore = PlayerPrefs.GetInt("BestScore", 0);
         UpdateScoreUI();
@@ -39,17 +39,18 @@ public class GameManager : MonoBehaviour
         Debug.Log("IncreaseScore: " + score);
     }
 
-    void UpdateScoreUI()
+    private void UpdateScoreUI()
     {
-        if (scoreText != null) scoreText.text = score.ToString();
+        if (worldScoreText != null)
+            worldScoreText.text = score.ToString();
     }
 
+    public int Score => score;
     public void GameOver()
     {
         gameoverPannel.SetActive(true);
         Time.timeScale = 0;
         pauseButtonPannel.SetActive(false);
-        ScorePannel.SetActive(false);
 
         if (gameOverScoreText != null)
             gameOverScoreText.text = "Score = " + score.ToString();
