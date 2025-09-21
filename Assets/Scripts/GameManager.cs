@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Drawing;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,13 +14,15 @@ public class GameManager : MonoBehaviour
     private int score;
     private int bestScore;
     public TextMeshProUGUI gameOverScoreText; 
-    public TextMeshProUGUI bestScoreText; 
+    public TextMeshProUGUI bestScoreText;
+    public AudioSource Die, flap, point,click;
 
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else { Destroy(gameObject); return; }
+        flap.Play();
     }
 
     void Start()
@@ -37,6 +41,7 @@ public class GameManager : MonoBehaviour
         score++;
         UpdateScoreUI();
         Debug.Log("IncreaseScore: " + score);
+        point.Play();
     }
 
     private void UpdateScoreUI()
@@ -48,6 +53,8 @@ public class GameManager : MonoBehaviour
     public int Score => score;
     public void GameOver()
     {
+        Die.Play();
+        flap.Stop();
         gameoverPannel.SetActive(true);
         Time.timeScale = 0;
         pauseButtonPannel.SetActive(false);
@@ -68,13 +75,17 @@ public class GameManager : MonoBehaviour
 
     public void PouseButtonPressed()
     {
+        flap.Stop();
         PausePannel.SetActive(true);
         Time.timeScale = 0;
+        click.Play();
     }
 
     public void PouseBackButtonPressed()
     {
         PausePannel.SetActive(false);
+     click.Play();
         Time.timeScale = 1;
+        flap.Play();
     }
 }
