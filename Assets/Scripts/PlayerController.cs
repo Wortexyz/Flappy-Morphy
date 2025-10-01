@@ -20,12 +20,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Input.GetKeyUp(KeyCode.Space))
+
         {
             direction = Vector3.up * Speed;
             AnimateSprite();
         }
-
+      
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
